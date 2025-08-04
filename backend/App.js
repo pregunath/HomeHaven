@@ -4,10 +4,15 @@
 // sclover@iastate.edu
 // Date: 12/11/2024 
 
+
+
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
+require("dotenv").config();
+
+
 
 const app = express();
 app.use(cors());
@@ -19,7 +24,7 @@ const path = require("path");
 
 
 // MongoDB setup
-const url = "mongodb+srv://pkregu22:mydb2024@coms319.ao72x.mongodb.net/?retryWrites=true&w=majority&appName=COMS319";
+const url = process.env.MONGODB_URI;
 const dbName = "secoms3190";
 let db, usersCollection;
 
